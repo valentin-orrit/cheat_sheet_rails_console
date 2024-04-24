@@ -1,7 +1,33 @@
 # cheat_sheet_rails_console
 
+## Rails DBs
+### Generate Model
+must be **PascalCase**, **singular**
+```
+ rails g model User
+```
+*Create migration*
+### Migrations
+tables must be **snake_case**, **plural** of Model
+In terminal
+```
+$ rails generate migration NomDeTaMigration
+```
+Example of migration
+```
+def change
+  create_table :users do |t|
+    t.string :name
+    t.boolean :is_admin
+    t.timestamps
+  end
+end
+```
+Run migration in terminal
+```
+$ rails db:migrate
+```
 ## CRUD
-
 ### Create
 ```
 > martin = User.new(first_name: "Martin", email: "martion@gmail.com", is_admin: true)
