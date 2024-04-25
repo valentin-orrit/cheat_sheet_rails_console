@@ -10,8 +10,21 @@ Or :
 ```Shell
 $ rails g model User name:string age:integer #etc.
 ```
-
 -> Create migration.
+#### link models for linked tables
+```ruby
+class Article < ApplicationRecord
+  belongs_to :user
+end
+```
+```ruby
+class User < ApplicationRecord
+  has_many :articles
+end
+```
+> [!IMPORTANT]
+> belongs_to => singular / has_many => plural 
+
 ### Migrations
 tables must be **snake_case**, **plural** of Model.
 ```Shell
