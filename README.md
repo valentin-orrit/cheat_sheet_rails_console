@@ -3,18 +3,18 @@
 ## Rails DBs
 ### Generate Model
 must be **PascalCase**, **singular**.
-```shell
+```Shell
 $ rails g model User
 ```
 Or :
-```shell
+```Shell
 $ rails g model User name:string age:integer #etc.
 ```
 
 -> Create migration.
 ### Migrations
 tables must be **snake_case**, **plural** of Model.
-```shell
+```Shell
 $ rails generate migration NomDeTaMigration
 ```
 Example of migration :
@@ -35,11 +35,11 @@ def change
 end
 ```
 Run migration :
-```shell
+```Shell
 $ rails db:migrate
 ```
 Check migration status :
-```shell
+```Shell
 $ rails db:migrate:status
 ```
 ## CRUD
@@ -102,7 +102,7 @@ User.create(first_name: "jean", email:"jean@jean.jean")
 User.create(first_name: "paul", email:"paul@paul.paul")
 puts "Deux utilisateurs ont été créés"
 ```
-```shell
+```Shell
 $ rails db:seed
 ```
 Loops : 
