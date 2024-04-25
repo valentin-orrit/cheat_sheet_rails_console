@@ -2,18 +2,17 @@
 
 ## Rails DBs
 ### Generate Model
-must be **PascalCase**, **singular**
+must be **PascalCase**, **singular**.
 ```
  rails g model User
 ```
-*Create migration*
+-> Create migration.
 ### Migrations
-tables must be **snake_case**, **plural** of Model
-In terminal
+tables must be **snake_case**, **plural** of Model.
 ```
 $ rails generate migration NomDeTaMigration
 ```
-Example of migration
+Example of migration :
 ```
 def change
   create_table :users do |t|
@@ -23,9 +22,13 @@ def change
   end
 end
 ```
-Run migration in terminal
+Run migration :
 ```
 $ rails db:migrate
+```
+Check migration status :
+```
+$ rails db:migrate:status
 ```
 ## CRUD
 ### Create
@@ -33,7 +36,7 @@ $ rails db:migrate
 > martin = User.new(first_name: "Martin", email: "martion@gmail.com", is_admin: true)
 > martin.save
 ```
-or
+Or :
 ```
 > martin = User.create(first_name: "Martin", email: "martion@gmail.com", is_admin: true)
 ```
@@ -43,7 +46,7 @@ or
 > u = User.find(3)
 > david = User.find_by(first_name: 'David')
 ```
-Recherches plus complexes:
+More complex researchs :
 ```
 > users = User.where(first_name: 'David', is_admin: true).order(created_at: :desc)
 ```
@@ -53,7 +56,7 @@ Recherches plus complexes:
 > user_1.first_name = "a new name"
 > user_1.save
 ```
-or
+Or :
 ```
 > user_1 = User.find(1)
 > user_1.update(first_name: "a new name")
@@ -80,23 +83,22 @@ or
 + `#destroy` : supprime de la BDD l'entrée en question.
 
 ### Seed
-In `db/seeds.rb`, same commands as in rails console
+In `db/seeds.rb`, same commands as in rails console :
 ```
 User.create(first_name: "jean", email:"jean@jean.jean")
 User.create(first_name: "paul", email:"paul@paul.paul")
 puts "Deux utilisateurs ont été créés"
 ```
-In terminal
 ```
 $ rails db:seed
 ```
-loops 
+Loops : 
 ```
 100.times do |index|
   User.create(first_name: "Nom#{index}", email: "email#{index}@example.com")
 end
 ```
-Faker
+### Faker
 ```
 require 'faker'
 100.times do
@@ -104,8 +106,6 @@ require 'faker'
 end
 ```
 
-
 ### Links
-
-https://api.rubyonrails.org/
-https://guides.rubyonrails.org/v7.1/
++ https://api.rubyonrails.org/
++ https://guides.rubyonrails.org/v7.1/
