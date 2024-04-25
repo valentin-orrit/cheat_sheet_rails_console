@@ -1,7 +1,5 @@
 # Cheat-sheet Rails console
-
-## Rails DBs
-### Generate Model
+## Generate Model
 must be **PascalCase**, **singular**.
 ```Shell
 $ rails g model User
@@ -11,7 +9,7 @@ Or :
 $ rails g model User name:string age:integer #etc.
 ```
 -> Create migration.
-#### link models for linked tables
+### link models for linked tables
 ```ruby
 class Article < ApplicationRecord
   belongs_to :user
@@ -23,9 +21,18 @@ class User < ApplicationRecord
 end
 ```
 > [!IMPORTANT]
-> belongs_to => singular / has_many => plural 
+> belongs_to => singular / has_many => plural
+### `has_many...through` for Many to Many Relations
+```ruby
+class Doctor < ApplicationRecord
+  has_many :appointments
+  has_many :patients, through: :appointments
+end
+```
++ *can also use `has_and_belongs_to_many` instead if the join table doesnt have a model.*
++ *for One to One relations use `has_one`.*
 
-### Migrations
+## Migrations
 tables must be **snake_case**, **plural** of Model.
 ```Shell
 $ rails generate migration NomDeTaMigration
@@ -107,8 +114,9 @@ Or :
 + `#find_by(attribute: value)` : te retourne le premier élément qui a value à l'attribute.
 + `#where(attribute: value)` : te retourne tous les éléments (dans un array) qui ont `value` à l'`attribute`.
 + `#destroy` : supprime de la BDD l'entrée en question.
++ `#errors` : explique le pb.
 
-### Seed
+## Seed
 In `db/seeds.rb`, same commands as in rails console :
 ```ruby
 User.create(first_name: "jean", email:"jean@jean.jean")
@@ -132,7 +140,6 @@ require 'faker'
   user = User.create!(first_name: Faker::Name.first_name, email: Faker::Internet.email)
 end
 ```
-
 > ## Links
 > + https://api.rubyonrails.org/
 > + https://guides.rubyonrails.org/v7.1/
