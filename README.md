@@ -1,4 +1,10 @@
 # Cheat-sheet Rails console
+
+## New App with postgresql
+```Shell
+$ rails new -d postgresql appname
+```
+
 ## Generate Model
 must be **PascalCase**, **singular**.
 ```Shell
@@ -131,6 +137,10 @@ Loops :
 100.times do |index|
   User.create(first_name: "Nom#{index}", email: "email#{index}@example.com")
 end
+```
+Reset database :
+```Shell
+$ rails db:reset #equivalent of db:drop db:create db:migrate db:seed
 ```
 
 ### Faker https://github.com/faker-ruby
