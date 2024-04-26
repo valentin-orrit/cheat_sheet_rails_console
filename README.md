@@ -4,7 +4,12 @@
 ```Shell
 $ rails new -d postgresql appname
 ```
-
+```Shell
+$ bundle install
+```
+```Shell
+$ rails db:create
+```
 ## Generate Model
 must be **PascalCase**, **singular**.
 ```Shell
