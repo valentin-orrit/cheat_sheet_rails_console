@@ -7,8 +7,13 @@ $ rails new myapp -j esbuild -d postgresql
 ```Shell
 $ bundle install
 ```
+create database :
 ```Shell
 $ rails db:create
+```
+run server :
+```Shell
+$ rails server
 ```
 ## Generate Model
 must be **PascalCase**, **singular**.
