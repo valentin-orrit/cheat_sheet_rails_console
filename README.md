@@ -1,8 +1,8 @@
 # Cheat-sheet Rails console
 
-## New App with postgresql
+## New App with postgresql & Javascript
 ```Shell
-$ rails new -d postgresql appname
+$ rails new myapp -j esbuild -d postgresql
 ```
 ```Shell
 $ bundle install
